@@ -1,0 +1,21 @@
+server:
+
+  port: 8081  # Set a unique port for user-service
+
+spring:
+  application:
+    name: user-service  # Service name for easier identification in logs
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/user-service-db  # MongoDB connection string
+  main:
+    allow-bean-definition-overriding: true  # Optional, allows bean overriding
+
+  security:
+    user:
+      name: admin  # Custom username
+      password: admin  # Custom password
+
+logging:
+  level:
+    org.springframework: DEBUG  # Optional: More detailed Spring logs for debugging

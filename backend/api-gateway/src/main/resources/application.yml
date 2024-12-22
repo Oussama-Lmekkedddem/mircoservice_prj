@@ -1,0 +1,28 @@
+server:
+  port: 8080  # API Gateway port
+
+spring:
+  application:
+    name: api-gateway  # Service name for identification
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8081  # Route to user-service
+          predicates:
+            - Path=/api/users/**  # Match requests starting with /api/users/
+        - id: product-service
+          uri: http://localhost:8082  # Route to product-service
+          predicates:
+            - Path=/api/products/**  # Match requests starting with /api/products/
+        - id: order-service
+          uri: http://localhost:8083  # Route to order-service
+          predicates:
+            - Path=/api/orders/**  # Match requests starting with /api/orders/
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG  # Debug logs for the gateway

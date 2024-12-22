@@ -1,0 +1,16 @@
+server:
+  port: 8083  # Set a unique port for order-service
+
+spring:
+  application:
+    name: order-service  # Service name for easier identification in logs
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/order-service-db  # MongoDB connection string
+  main:
+    allow-bean-definition-overriding: true  # Optional, useful in some cases for overriding beans
+
+logging:
+  level:
+    root: INFO  # Set logging level
+    org.springframework: DEBUG  # Optional: More detailed Spring logs for debugging
